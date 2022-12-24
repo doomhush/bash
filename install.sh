@@ -391,6 +391,9 @@ install() {
 	domain="la.wintermelon.win"
 	caddy=true
 	install_caddy_info="打开"
+	path="805899"
+	is_path=true
+	proxy_site="yousei-raws.org"
 
 	install_info
 	install_v2ray
