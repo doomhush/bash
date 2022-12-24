@@ -152,39 +152,41 @@ _sys_time() {
 v2ray_config() {
 	# clear
 	echo
-	while :; do
-		echo -e "请选择 "$yellow"V2Ray"$none" 传输协议 [${magenta}1-${#transport[*]}$none]"
-		echo
-		for ((i = 1; i <= ${#transport[*]}; i++)); do
-			Stream="${transport[$i - 1]}"
-			if [[ "$i" -le 9 ]]; then
-				# echo
-				echo -e "$yellow  $i. $none${Stream}"
-			else
-				# echo
-				echo -e "$yellow $i. $none${Stream}"
-			fi
-		done
-		echo
-		echo "备注1: 含有 [dynamicPort] 的即启用动态端口.."
-		echo "备注2: [utp | srtp | wechat-video | dtls | wireguard] 分别伪装成 [BT下载 | 视频通话 | 微信视频通话 | DTLS 1.2 数据包 | WireGuard 数据包]"
-		echo
-		read -p "$(echo -e "(默认协议: ${cyan}TCP$none)"):" v2ray_transport
-		[ -z "$v2ray_transport" ] && v2ray_transport=1
-		case $v2ray_transport in
-		[1-9] | [1-2][0-9] | 3[0-3])
-			echo
-			echo
-			echo -e "$yellow V2Ray 传输协议 = $cyan${transport[$v2ray_transport - 1]}$none"
-			echo "----------------------------------------------------------------"
-			echo
-			break
-			;;
-		*)
-			error
-			;;
-		esac
-	done
+	# while :; do
+	# 	echo -e "请选择 "$yellow"V2Ray"$none" 传输协议 [${magenta}1-${#transport[*]}$none]"
+	# 	echo
+	# 	for ((i = 1; i <= ${#transport[*]}; i++)); do
+	# 		Stream="${transport[$i - 1]}"
+	# 		if [[ "$i" -le 9 ]]; then
+	# 			# echo
+	# 			echo -e "$yellow  $i. $none${Stream}"
+	# 		else
+	# 			# echo
+	# 			echo -e "$yellow $i. $none${Stream}"
+	# 		fi
+	# 	done
+	# 	echo
+	# 	echo "备注1: 含有 [dynamicPort] 的即启用动态端口.."
+	# 	echo "备注2: [utp | srtp | wechat-video | dtls | wireguard] 分别伪装成 [BT下载 | 视频通话 | 微信视频通话 | DTLS 1.2 数据包 | WireGuard 数据包]"
+	# 	echo
+	# 	read -p "$(echo -e "(默认协议: ${cyan}TCP$none)"):" v2ray_transport
+	# 	[ -z "$v2ray_transport" ] && v2ray_transport=1
+	# 	case $v2ray_transport in
+	# 	[1-9] | [1-2][0-9] | 3[0-3])
+	# 		echo
+	# 		echo
+	# 		echo -e "$yellow V2Ray 传输协议 = $cyan${transport[$v2ray_transport - 1]}$none"
+	# 		echo "----------------------------------------------------------------"
+	# 		echo
+	# 		break
+	# 		;;
+	# 	*)
+	# 		error
+	# 		;;
+	# 	esac
+	# done
+    v2ray_transport = 4
+    echo -e "$yellow V2Ray 传输协议 = $cyan${transport[$v2ray_transport - 1]}$none"
 	v2ray_port_config
 }
 v2ray_port_config() {
