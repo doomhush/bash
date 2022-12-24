@@ -387,8 +387,8 @@ install() {
 	fi
 
 	v2ray_transport=4
-	v2ray_port=3569
-	domain="vultr.wintermelon.win"
+	v2ray_port=3556
+	domain="la.wintermelon.win"
 	caddy=true
 	install_caddy_info="打开"
 
